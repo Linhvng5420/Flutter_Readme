@@ -80,4 +80,4 @@
 - Tệp `*.g.dart` được tạo tự động, không nên chỉnh sửa thủ công.
 - Cần khai báo `part 'filename.g.dart';` trong tệp chính của store.
 
-Nếu bạn cần hướng dẫn cụ thể hơn hoặc có lỗi khi sử dụng, hãy cho mình biết nhé! 😊
+
