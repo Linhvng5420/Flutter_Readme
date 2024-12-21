@@ -91,7 +91,6 @@ void main() {
 | **Cú pháp khởi tạo**    | `List<int> list = [1, 2, 3];`                     | `Set<int> set = {1, 2, 3};`                   | `Map<int, String> map = {1: 'one', 2: 'two'};`|
 | **Khi nào dùng?**       | Khi cần lưu danh sách có thứ tự.                  | Khi cần tập hợp các giá trị không trùng lặp.  | Khi cần lưu trữ dữ liệu dạng key-value.       |
 
-### **So sánh qua ví dụ**
  **1. List**
 ```dart
 void main() {
@@ -148,7 +147,7 @@ void main() {
 - **Map**: Thích hợp cho dữ liệu dạng key-value, key phải duy nhất, hỗ trợ tra cứu nhanh.
 ---
 
-### **So sánh `const`, `final`, và `late` trong Dart**
+## **So sánh `const`, `final`, và `late` trong Dart**
 
 | **Tiêu chí**             | **Const**                                              | **Final**                                              | **Late**                                               |
 |--------------------------|-------------------------------------------------------|-------------------------------------------------------|-------------------------------------------------------|
@@ -281,7 +280,7 @@ void main() {
   - Khi cần đảm bảo dữ liệu không thay đổi để tránh lỗi hoặc giữ nguyên trạng thái.
   - Ví dụ: Hằng số, cấu hình ứng dụng, hoặc dữ liệu không cần chỉnh sửa.
 
-Tóm lại**
+**Tóm lại**
 - **Mutable**: Đối tượng có thể thay đổi.
 - **Immutable**: Đối tượng không thể thay đổi, an toàn hơn trong nhiều trường hợp lập trình.
 
