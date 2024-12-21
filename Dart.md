@@ -147,7 +147,7 @@ void main() {
 - **Map**: Thích hợp cho dữ liệu dạng key-value, key phải duy nhất, hỗ trợ tra cứu nhanh.
 ---
 
-## **So sánh `const`, `final`, và `late` trong Dart**
+# **So sánh `const`, `final`, và `late` trong Dart**
 
 | **Tiêu chí**             | **Const**                                              | **Final**                                              | **Late**                                               |
 |--------------------------|-------------------------------------------------------|-------------------------------------------------------|-------------------------------------------------------|
