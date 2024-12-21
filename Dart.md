@@ -1,4 +1,4 @@
-# Phân Tích Code
+# 1. Phân Tích Code
 ```dart
 const Object i = 3; // Where i is a const Object with an int value...
 const list = [i as int]; // Use a typecast.
@@ -10,10 +10,11 @@ const set = {if (list is List<int>) ...list}; // ...and a spread.
 - `const list` chứa danh sách `[3]`.
 - `const map` chứa bản đồ `{3: 'int'}`.
 - `const set` chứa tập hợp `{3}`.
----
 
-# **Spread Operator (`...`)**
 
+
+
+# **2. Spread Operator (`...`)**
 **Spread Operator (`...`)** trong Dart được sử dụng để "trải" các phần tử của một tập hợp dữ liệu (như `List`, `Set`, hoặc `Map`) vào một tập hợp mới. Nó giúp hợp nhất, sao chép, hoặc thêm các phần tử từ một tập hợp vào một tập hợp khác một cách gọn gàng và hiệu quả.
 
  **1. Trong danh sách (`List`)**
@@ -78,9 +79,11 @@ void main() {
 
 - **Giải thích**:
   - `...?list1` đảm bảo rằng nếu `list1` là `null`, thì nó sẽ không gây lỗi và không thêm gì vào `list2`.
----
 
-# **So sánh giữa List, Set và Map trong Dart**
+
+
+
+# **3. So sánh giữa List, Set và Map trong Dart**
 
 | **Tiêu chí**            | **List**                                           | **Set**                                         | **Map**                                         |
 |-------------------------|---------------------------------------------------|-----------------------------------------------|-----------------------------------------------|
@@ -103,6 +106,7 @@ void main() {
 - **Đặc điểm**:
   - Cho phép phần tử trùng lặp (ví dụ: `2` xuất hiện hai lần).
   - Truy cập phần tử bằng chỉ số (`index`).
+  - 
  **2. Set**
 ```dart
 void main() {
@@ -145,7 +149,9 @@ void main() {
 - **List**: Thích hợp để lưu trữ danh sách có thứ tự, cho phép phần tử trùng lặp.
 - **Set**: Dùng khi cần tập hợp các giá trị không trùng lặp, không cần thứ tự.
 - **Map**: Thích hợp cho dữ liệu dạng key-value, key phải duy nhất, hỗ trợ tra cứu nhanh.
----
+
+
+
 
 # **So sánh `const`, `final`, và `late` trong Dart**
 
@@ -224,7 +230,8 @@ void main() {
 - **`const`**: Hằng số bất biến, xác định tại **compile time**.
 - **`final`**: Gán một lần, xác định tại **runtime**.
 - **`late`**: Trì hoãn khởi tạo, chỉ khởi tạo khi cần.
----
+
+
 
 # **Mutable và Immutable là gì?**
  **1. Khái niệm**
@@ -271,7 +278,6 @@ void main() {
 - **Đặc điểm**:
   - `immutableList` không thể thay đổi sau khi được khởi tạo do sử dụng `const`.
 
- **Khi nào sử dụng Mutable và Immutable?**
 - **Mutable**:
   - Khi cần thay đổi dữ liệu liên tục trong cùng một đối tượng.
   - Ví dụ: Thay đổi danh sách sản phẩm, cập nhật cấu hình.
@@ -284,13 +290,12 @@ void main() {
 - **Mutable**: Đối tượng có thể thay đổi.
 - **Immutable**: Đối tượng không thể thay đổi, an toàn hơn trong nhiều trường hợp lập trình.
 
- **Tại sao `final` được sử dụng cho cả mutable và immutable trong Dart?**
 
- **1. `final` trong Dart**
+### **3. Tại sao `final` được sử dụng cho cả mutable và immutable trong Dart?**
+ **`final` trong Dart**
 - `final` chỉ định rằng một biến **chỉ được gán giá trị một lần duy nhất** sau khi nó được khởi tạo.
 - Tuy nhiên, điều này không có nghĩa là giá trị của đối tượng được tham chiếu bởi `final` là bất biến (**immutable**). Nếu đối tượng là kiểu dữ liệu **mutable**, bạn vẫn có thể thay đổi trạng thái bên trong của nó.
 
- **Cách hoạt động của `final` với Mutable và Immutable**
  **1. Với Mutable Object**
 `final` đảm bảo rằng biến không thể tham chiếu đến một đối tượng khác, nhưng trạng thái của đối tượng được tham chiếu có thể thay đổi.
 
