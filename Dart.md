@@ -16,7 +16,7 @@ const set = {if (list is List<int>) ...list}; // ...and a spread.
 
 **Spread Operator (`...`)** trong Dart được sử dụng để "trải" các phần tử của một tập hợp dữ liệu (như `List`, `Set`, hoặc `Map`) vào một tập hợp mới. Nó giúp hợp nhất, sao chép, hoặc thêm các phần tử từ một tập hợp vào một tập hợp khác một cách gọn gàng và hiệu quả.
 
-#### **1. Trong danh sách (`List`)**
+ **1. Trong danh sách (`List`)**
 Spread Operator được dùng để thêm tất cả các phần tử của một danh sách vào một danh sách khác.
 
 ```dart
@@ -32,7 +32,7 @@ void main() {
   - `...list1` sẽ "trải" các phần tử của `list1` vào `list2`.
   - `list2` chứa các phần tử của `list1` và các giá trị khác.
 
-#### **2. Trong tập hợp (`Set`)**
+ **2. Trong tập hợp (`Set`)**
 Tương tự như danh sách, Spread Operator có thể được sử dụng với `Set`.
 
 ```dart
@@ -46,7 +46,7 @@ void main() {
 
 - **Lưu ý**: Trong `Set`, các phần tử trùng lặp sẽ tự động bị loại bỏ.
 
-#### **3. Trong bản đồ (`Map`)**
+ **3. Trong bản đồ (`Map`)**
 Spread Operator cũng có thể "trải" các cặp key-value từ một `Map` sang một `Map` khác.
 
 ```dart
@@ -63,7 +63,7 @@ void main() {
   - Nếu key bị trùng lặp, giá trị mới sẽ ghi đè giá trị cũ.
 
 
-### **Null-aware Spread Operator (`...?`)**
+ **4. Null-aware Spread Operator (`...?`)**
 
 Trong trường hợp một tập hợp có thể `null`, bạn có thể sử dụng **Null-aware Spread Operator (`...?`)** để tránh lỗi khi "trải" một tập hợp `null`.
 
@@ -92,7 +92,7 @@ void main() {
 | **Khi nào dùng?**       | Khi cần lưu danh sách có thứ tự.                  | Khi cần tập hợp các giá trị không trùng lặp.  | Khi cần lưu trữ dữ liệu dạng key-value.       |
 
 ### **So sánh qua ví dụ**
-#### **1. List**
+ **1. List**
 ```dart
 void main() {
   List<int> list = [1, 2, 3, 2];
@@ -104,7 +104,7 @@ void main() {
 - **Đặc điểm**:
   - Cho phép phần tử trùng lặp (ví dụ: `2` xuất hiện hai lần).
   - Truy cập phần tử bằng chỉ số (`index`).
-#### **2. Set**
+ **2. Set**
 ```dart
 void main() {
   Set<int> set = {1, 2, 3, 2};
@@ -116,7 +116,7 @@ void main() {
   - Không cho phép phần tử trùng lặp (phần tử `2` chỉ xuất hiện một lần).
   - Thứ tự không được đảm bảo (trừ khi dùng `LinkedHashSet`).
 
-#### **3. Map**
+ **3. Map**
 ```dart
 void main() {
   Map<int, String> map = {1: 'one', 2: 'two', 3: 'three'};
@@ -129,7 +129,7 @@ void main() {
   - Dữ liệu được lưu dưới dạng cặp key-value.
   - Key phải duy nhất, nhưng value có thể trùng lặp.
 
-### **Khi nào sử dụng?**
+ **Khi nào sử dụng?**
 1. **Sử dụng List**:
    - Khi cần một danh sách giá trị có thứ tự.
    - Ví dụ: Danh sách sản phẩm, danh sách người dùng.
@@ -142,7 +142,7 @@ void main() {
    - Khi cần lưu trữ dữ liệu dạng cặp key-value để tra cứu nhanh.
    - Ví dụ: Thông tin người dùng với `ID` là key và `Tên` là value.
 
-### **Tóm tắt**
+ **Tóm tắt**
 - **List**: Thích hợp để lưu trữ danh sách có thứ tự, cho phép phần tử trùng lặp.
 - **Set**: Dùng khi cần tập hợp các giá trị không trùng lặp, không cần thứ tự.
 - **Map**: Thích hợp cho dữ liệu dạng key-value, key phải duy nhất, hỗ trợ tra cứu nhanh.
@@ -158,9 +158,7 @@ void main() {
 | **Sử dụng cho đối tượng** | Chỉ với các đối tượng bất biến (immutable).            | Được dùng với cả đối tượng mutable và immutable.       | Tương tự như `final`, nhưng chỉ khởi tạo khi cần.      |
 | **Thích hợp dùng khi**    | Giá trị được biết trước và không thay đổi (hằng số compile time). | Giá trị chỉ được gán một lần và có thể được xác định tại runtime. | Khi muốn trì hoãn khởi tạo cho hiệu suất.             |
 
-### **Chi tiết và Ví dụ**
-
-#### **1. `const`**
+ **1. `const`**
 - Giá trị phải được biết trước tại thời điểm biên dịch (compile time).
 - Không thể gán lại hoặc thay đổi sau khi đã khởi tạo.
 
@@ -180,7 +178,7 @@ void main() {
 - `const` có thể sử dụng cho các giá trị bất biến như chuỗi, số, hoặc danh sách không thay đổi.
 - Không thể dùng `const` nếu giá trị cần khởi tạo tại runtime.
 
-#### **2. `final`**
+ **2. `final`**
 - Chỉ có thể gán giá trị một lần và không thể thay đổi sau khi đã gán.
 - Giá trị có thể được xác định tại thời điểm runtime.
 
@@ -196,7 +194,7 @@ void main() {
 **Lưu ý:**
 - `final` linh hoạt hơn `const` vì giá trị có thể được xác định trong quá trình chạy chương trình.
 
-#### **3. `late`**
+ **3. `late`**
 - Được sử dụng để trì hoãn việc khởi tạo biến cho đến khi nó được sử dụng lần đầu tiên.
 - Thường được dùng với `final` hoặc các biến không muốn khởi tạo ngay lập tức.
 
@@ -215,7 +213,7 @@ void main() {
 - Nếu truy cập biến `late` mà chưa khởi tạo, chương trình sẽ báo lỗi.
 - Kết hợp tốt với các biến tốn tài nguyên hoặc cần khởi tạo muộn.
 
-### **Khi nào sử dụng?**
+ **Khi nào sử dụng?**
 
 | **Tình huống**                               | **Nên dùng**          |
 |---------------------------------------------|-----------------------|
@@ -223,15 +221,14 @@ void main() {
 | Giá trị chỉ gán một lần, xác định tại runtime. | `final`              |
 | Khởi tạo muộn để tối ưu hiệu suất hoặc tránh lãng phí tài nguyên. | `late`               |
 
-### **Tóm tắt**
+ **Tóm tắt**
 - **`const`**: Hằng số bất biến, xác định tại **compile time**.
 - **`final`**: Gán một lần, xác định tại **runtime**.
 - **`late`**: Trì hoãn khởi tạo, chỉ khởi tạo khi cần.
 ---
 
 # **Mutable và Immutable là gì?**
-
-#### **1. Khái niệm**
+ **1. Khái niệm**
 - **Mutable**: 
   - Đối tượng có thể **thay đổi trạng thái** hoặc giá trị sau khi đã được khởi tạo.
   - Ví dụ: Danh sách có thể thêm, xóa, hoặc sửa phần tử.
@@ -240,7 +237,7 @@ void main() {
   - Đối tượng không thể thay đổi sau khi đã được khởi tạo.
   - Mọi thao tác chỉnh sửa trên một đối tượng immutable sẽ tạo ra một bản sao mới thay vì thay đổi chính đối tượng ban đầu.
 
-### **So sánh Mutable và Immutable**
+ **So sánh Mutable và Immutable**
 
 | **Tiêu chí**          | **Mutable**                               | **Immutable**                              |
 |-----------------------|-------------------------------------------|-------------------------------------------|
@@ -249,9 +246,8 @@ void main() {
 | **An toàn dữ liệu**    | Dễ gặp lỗi nếu nhiều tham chiếu thay đổi đối tượng cùng lúc. | An toàn hơn, vì dữ liệu không thay đổi.    |
 | **Ví dụ trong Dart**   | `List`, `Map` khi không được gán là `final` hoặc `const`. | Các đối tượng được khai báo với `const`.   |
 
-### **Ví dụ trong Dart**
 
-#### **1. Đối tượng Mutable**
+ **1. Đối tượng Mutable**
 ```dart
 void main() {
   List<int> mutableList = [1, 2, 3];
@@ -264,7 +260,7 @@ void main() {
 - **Đặc điểm**:
   - `mutableList` có thể được sửa đổi, ví dụ: thêm, xóa phần tử.
 
-#### **2. Đối tượng Immutable**
+ **2. Đối tượng Immutable**
 ```dart
 void main() {
   const List<int> immutableList = [1, 2, 3];
@@ -276,7 +272,7 @@ void main() {
 - **Đặc điểm**:
   - `immutableList` không thể thay đổi sau khi được khởi tạo do sử dụng `const`.
 
-### **Khi nào sử dụng Mutable và Immutable?**
+ **Khi nào sử dụng Mutable và Immutable?**
 - **Mutable**:
   - Khi cần thay đổi dữ liệu liên tục trong cùng một đối tượng.
   - Ví dụ: Thay đổi danh sách sản phẩm, cập nhật cấu hình.
@@ -285,19 +281,18 @@ void main() {
   - Khi cần đảm bảo dữ liệu không thay đổi để tránh lỗi hoặc giữ nguyên trạng thái.
   - Ví dụ: Hằng số, cấu hình ứng dụng, hoặc dữ liệu không cần chỉnh sửa.
 
-### **Tóm lại**
+Tóm lại**
 - **Mutable**: Đối tượng có thể thay đổi.
 - **Immutable**: Đối tượng không thể thay đổi, an toàn hơn trong nhiều trường hợp lập trình.
 
-### **Tại sao `final` được sử dụng cho cả mutable và immutable trong Dart?**
+ **Tại sao `final` được sử dụng cho cả mutable và immutable trong Dart?**
 
-#### **1. `final` trong Dart**
+ **1. `final` trong Dart**
 - `final` chỉ định rằng một biến **chỉ được gán giá trị một lần duy nhất** sau khi nó được khởi tạo.
 - Tuy nhiên, điều này không có nghĩa là giá trị của đối tượng được tham chiếu bởi `final` là bất biến (**immutable**). Nếu đối tượng là kiểu dữ liệu **mutable**, bạn vẫn có thể thay đổi trạng thái bên trong của nó.
 
-### **Cách hoạt động của `final` với Mutable và Immutable**
-
-#### **1. Với Mutable Object**
+ **Cách hoạt động của `final` với Mutable và Immutable**
+ **1. Với Mutable Object**
 `final` đảm bảo rằng biến không thể tham chiếu đến một đối tượng khác, nhưng trạng thái của đối tượng được tham chiếu có thể thay đổi.
 
 **Ví dụ:**
@@ -318,7 +313,7 @@ void main() {
   - Biến `numbers` luôn tham chiếu đến cùng một danh sách.
   - Tuy nhiên, bạn có thể thay đổi nội dung của danh sách (vì danh sách là một đối tượng **mutable**).
 
-#### **2. Với Immutable Object**
+ **2. Với Immutable Object**
 `final` kết hợp với đối tượng immutable đảm bảo rằng cả biến và nội dung của nó đều không thể thay đổi.
 
 **Ví dụ:**
@@ -338,7 +333,7 @@ void main() {
   - `const` biến danh sách thành một đối tượng bất biến (**immutable**), vì vậy nội dung bên trong danh sách không thể thay đổi.
   - Kết hợp với `final`, bạn không thể thay đổi cả tham chiếu và trạng thái của đối tượng.
 
-### **Vì sao `final` được sử dụng cho cả mutable và immutable?**
+ **Vì sao `final` được sử dụng cho cả mutable và immutable?**
 
 1. **Kiểm soát tham chiếu:**
    - `final` đảm bảo rằng một biến không thể thay đổi tham chiếu sang một đối tượng khác sau khi được khởi tạo.
@@ -351,7 +346,7 @@ void main() {
 3. **Tăng tính an toàn và dễ đọc mã nguồn:**
    - Sử dụng `final` giúp đảm bảo rằng biến không thể bị gán lại giá trị mới, điều này tránh được các lỗi lập trình không mong muốn.
 
-### **Tóm lại**
+ **Tóm lại**
 - `final` chỉ đảm bảo **tham chiếu** của biến không thay đổi, không liên quan đến trạng thái bên trong của đối tượng.
 - Đối với đối tượng mutable, bạn vẫn có thể thay đổi nội dung bên trong.
 - Đối với đối tượng immutable, `final` kết hợp với `const` sẽ đảm bảo cả tham chiếu và trạng thái đều không thay đổi.
