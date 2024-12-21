@@ -153,7 +153,7 @@ void main() {
 
 
 
-# **So sánh `const`, `final`, và `late` trong Dart**
+# **4. So sánh `const`, `final`, và `late` trong Dart**
 
 | **Tiêu chí**             | **Const**                                              | **Final**                                              | **Late**                                               |
 |--------------------------|-------------------------------------------------------|-------------------------------------------------------|-------------------------------------------------------|
@@ -233,7 +233,7 @@ void main() {
 
 
 
-# **Mutable và Immutable là gì?**
+# **5. Mutable và Immutable là gì?**
  **1. Khái niệm**
 - **Mutable**: 
   - Đối tượng có thể **thay đổi trạng thái** hoặc giá trị sau khi đã được khởi tạo.
@@ -291,7 +291,7 @@ void main() {
 - **Immutable**: Đối tượng không thể thay đổi, an toàn hơn trong nhiều trường hợp lập trình.
 
 
-### **3. Tại sao `final` được sử dụng cho cả mutable và immutable trong Dart?**
+### **Tại sao `final` được sử dụng cho cả mutable và immutable trong Dart?**
  **`final` trong Dart**
 - `final` chỉ định rằng một biến **chỉ được gán giá trị một lần duy nhất** sau khi nó được khởi tạo.
 - Tuy nhiên, điều này không có nghĩa là giá trị của đối tượng được tham chiếu bởi `final` là bất biến (**immutable**). Nếu đối tượng là kiểu dữ liệu **mutable**, bạn vẫn có thể thay đổi trạng thái bên trong của nó.
