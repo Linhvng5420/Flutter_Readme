@@ -117,4 +117,71 @@ class ProductDataSource extends DataTableSource {
 
 ---
 
-# 2. 
+# 2. Tất cả thuộc tính
+Dưới đây là bảng tóm tắt các thuộc tính của `PaginatedDataTable` và các thành phần liên quan:
+
+---
+
+### **Thuộc tính của `PaginatedDataTable`**
+| **Thuộc tính**            | **Ý nghĩa**                                                                                      |
+|----------------------------|--------------------------------------------------------------------------------------------------|
+| `header`                  | Tiêu đề hoặc mô tả xuất hiện trên bảng.                                                          |
+| `actions`                 | Danh sách các widget (ví dụ: nút) hiển thị ở góc phải trên bảng.                                |
+| `columns`                 | Danh sách các cột được định nghĩa bằng `DataColumn`.                                            |
+| `source`                  | Đối tượng `DataTableSource` cung cấp dữ liệu cho bảng.                                           |
+| `rowsPerPage`             | Số lượng hàng hiển thị trên mỗi trang.                                                          |
+| `onRowsPerPageChanged`    | Hàm callback khi người dùng thay đổi số hàng trên mỗi trang.                                    |
+| `availableRowsPerPage`    | Danh sách các giá trị số hàng có thể chọn hiển thị trên mỗi trang.                              |
+| `sortColumnIndex`         | Chỉ số của cột đang được sắp xếp.                                                               |
+| `sortAscending`           | Xác định hướng sắp xếp là tăng (`true`) hoặc giảm (`false`).                                    |
+| `showCheckboxColumn`      | Hiển thị cột checkbox để chọn hàng nếu `true`.                                                  |
+| `showFirstLastButtons`    | Hiển thị các nút "Trang đầu" và "Trang cuối" nếu `true`.                                        |
+
+---
+
+### **Thuộc tính của `DataColumn`**
+| **Thuộc tính**     | **Ý nghĩa**                                                                                      |
+|---------------------|--------------------------------------------------------------------------------------------------|
+| `label`            | Widget hiển thị tên cột.                                                                         |
+| `tooltip`          | Văn bản hiển thị khi giữ hoặc di chuột vào tiêu đề cột.                                           |
+| `numeric`          | Đặt `true` nếu cột hiển thị giá trị số.                                                          |
+| `onSort`           | Hàm callback được gọi khi người dùng nhấn vào tiêu đề cột để sắp xếp.                            |
+
+---
+
+### **Phương thức và thuộc tính của `DataTableSource`**
+| **Phương thức/Thuộc tính**  | **Ý nghĩa**                                                                                      |
+|-----------------------------|--------------------------------------------------------------------------------------------------|
+| `getRow(int index)`         | Trả về một hàng (`DataRow`) tại chỉ số được chỉ định.                                            |
+| `rowCount`                  | Tổng số hàng dữ liệu.                                                                           |
+| `isRowCountApproximate`     | Xác định xem số hàng có phải là ước tính (`true`) hay không (`false`).                          |
+| `selectedRowCount`          | Số lượng hàng đang được chọn.                                                                  |
+
+---
+
+### **Thuộc tính của `DataRow`**
+| **Thuộc tính**     | **Ý nghĩa**                                                                                      |
+|---------------------|--------------------------------------------------------------------------------------------------|
+| `cells`            | Danh sách các ô (`DataCell`) trong hàng.                                                         |
+| `selected`         | Xác định xem hàng có đang được chọn không.                                                       |
+| `onSelectChanged`  | Hàm callback được gọi khi trạng thái chọn của hàng thay đổi.                                     |
+
+---
+
+### **Thuộc tính của `DataCell`**
+| **Thuộc tính**     | **Ý nghĩa**                                                                                      |
+|---------------------|--------------------------------------------------------------------------------------------------|
+| `child`            | Widget hiển thị nội dung trong ô.                                                                |
+| `onTap`            | Hàm callback được gọi khi người dùng nhấn vào ô.                                                 |
+| `placeholder`      | Đặt `true` nếu ô đang trong trạng thái chờ dữ liệu.                                              |
+| `showEditIcon`     | Hiển thị biểu tượng chỉnh sửa trong ô nếu `true`.                                                |
+
+---
+
+### **Sử dụng chính**
+- **Hiển thị dữ liệu lớn**: `PaginatedDataTable` chia dữ liệu thành nhiều trang để dễ quản lý.
+- **Tùy chỉnh hiển thị**: Dễ dàng tùy chỉnh số hàng, cột, và các hành động liên quan.
+- **Hỗ trợ sắp xếp**: Sắp xếp dữ liệu theo cột với thuộc tính `onSort`.
+
+# 3. Sử dụng ```LayoutBuilder```: Tự động điều chỉnh kích thước.
+Table tự động điều chỉnh kích thước phù hợp với màn hình trước khi build.
